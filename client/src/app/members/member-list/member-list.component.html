@@ -18,7 +18,8 @@
             </div>
             <div class="d-flex mx-2">
                 <label class="col-form-label">Show: </label>
-                <select name="gender" style="width: 130px;" class="form-select ms-1" [(ngModel)]="memberService.userParams().gender">
+                <select name="gender" style="width: 130px;" class="form-select ms-1"
+                    [(ngModel)]="memberService.userParams().gender">
                     @for (gender of genderList; track gender.value) {
                     <option [value]="gender.value">
                         {{gender.display}}
@@ -50,7 +51,7 @@
     </div>
     }
 </div>
-<!-- @if (memberService.paginatedResult()?.pagination) { -->
+@if (memberService.paginatedResult()?.pagination) {
 <div class="d-flex justify-content-center">
     <pagination [boundaryLinks]="true" [totalItems]="memberService.paginatedResult()?.pagination!.totalItems"
         [itemsPerPage]="memberService.paginatedResult()?.pagination!.itemsPerPage" (pageChanged)="pageChanged($event)"
@@ -58,4 +59,4 @@
         [maxSize]="10" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
     </pagination>
 </div>
-<!-- } -->
+}
